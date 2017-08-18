@@ -22,7 +22,7 @@ ENV TLD com
 #ENV DOMAIN mydomain
 #ENV BIND_PASSWORD mydomain
 
-RUN apt-get -qy update && apt-get -qy install curl iptables openvpn openvpn-auth-ldap unzip
+RUN yum -y update && yum -y install epel-release && yum -y install curl iptables openvpn openvpn-auth-ldap unzip
 RUN curl -o /tmp/consul-template.zip -L $CONSUL_TEMPLATE_URL && ( cd /usr/bin && unzip /tmp/consul-template.zip )
 
 ADD etc/openvpn/ /etc/openvpn/
